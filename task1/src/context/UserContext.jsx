@@ -6,6 +6,7 @@ export const useUserContext = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const savedUser = localStorage.getItem('user');
@@ -19,12 +20,13 @@ export const UserProvider = ({ children }) => {
                 localStorage.removeItem('user');
             }
         }
+        setLoading(false);
     }, []);
 
     const login = (user) => {
         setCurrentUser(user);
         localStorage.setItem('user', JSON.stringify(user));
-    }
+    };
 
 
     const logout = () => {
@@ -33,7 +35,7 @@ export const UserProvider = ({ children }) => {
     };
 
     return (
-        <UserContext.Provider value={{ currentUser, login, logout }}>
+        <UserContext.Provider value={{ currentUser, login, logout, loading }}>
             {children}
         </UserContext.Provider>
     );

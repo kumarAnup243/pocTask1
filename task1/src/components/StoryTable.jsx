@@ -4,7 +4,7 @@ const StoryTable = ({ stories, onEdit, onDelete }) => {
             <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
                 <tr>
-                    {["Name", "Sprint", "Story", "Link", "Dept", "Start", "End", "Review", "Comments", "Actions"].map((header) => (
+                    {["Name", "Sprint", "Story", "StoryPoints", "Link", "Dept", "Start", "End", "Review", "Comments", "Actions"].map((header) => (
                         <th key={header} className="px-4 py-3 text-left text-sm font-semibold text-gray-600">
                             {header}
                         </th>
@@ -17,6 +17,7 @@ const StoryTable = ({ stories, onEdit, onDelete }) => {
                         <td className="px-4 py-2 text-sm">{story.name}</td>
                         <td className="px-4 py-2 text-sm">{story.sprint}</td>
                         <td className="px-4 py-2 text-sm">{story.story}</td>
+                        <td className="px-4 py-2 text-sm text-center">{story.storyPoints}</td>
                         <td className="px-4 py-2 text-sm text-blue-600 underline cursor-pointer">
                             <a href={story.storyLink} target="_blank" rel="noreferrer">Link</a>
                         </td>

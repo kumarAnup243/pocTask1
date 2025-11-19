@@ -7,13 +7,18 @@ import {Toaster} from "react-hot-toast";
 
 const App = () =>  {
 
-    const { currentUser } = useUserContext();
+    const { currentUser, loading } = useUserContext();
+    if (loading) return (
+        <div className="flex justify-center items-center h-screen">
+            Loading...
+        </div>
+    )
 
     return (
         <div className="min-h-screen bg-gray-100">
             <Toaster />
             <Routes>
-                <Route path="/" element={<Login />} de/>
+                <Route path="/" element={<Login />}/>
                 <Route
                     path="/dashboard"
                     element={

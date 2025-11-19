@@ -2,13 +2,15 @@ import { useEffect, useReducer, useState, useMemo, useCallback } from "react";
 import { storyReducer } from "../reducers/storyReducer";
 import { mockStories } from "../data/dummyData.js";
 import { useUserContext } from "../context/UserContext";
-import StoryForm from "./StoryFrom.jsx";
+import StoryForm from "./StoryForm.jsx";
 import StoryTable from "./StoryTable";
+import AnalyticsDashboard from "./AnalyticsDashboard.jsx";
 
 const Dashboard = () => {
     const [stories, dispatch] = useReducer(storyReducer, []);
     const [editingStory, setEditingStory] = useState(null);
     const [showModal, setShowModal] = useState(false);
+    const [showAnalytics, setShowAnalytics] = useState(false);
     const { currentUser, logout } = useUserContext();
 
     useEffect(() => {
@@ -48,6 +50,14 @@ const Dashboard = () => {
                     >
                         Logout
                     </button>
+                    <button
+                        onClick={() => {
+                            setShowAnalytics(!showAnalytics);
+                        }}
+                        className="bg-blue-600 text-white px-2 rounded hover:bg-blue-700 cursor-pointer"
+                    >
+                        Show Analytics
+                    </button>
                 </div>
 
                 <button
@@ -61,10 +71,10 @@ const Dashboard = () => {
                 </button>
             </div>
 
-            <StoryTable stories={sortedStories} onEdit={(story) => {
+            {!showAnalytics && <StoryTable stories={sortedStories} onEdit={(story) => {
                 setEditingStory(story);
                 setShowModal(true);
-            }} onDelete={handleDelete} />
+            }} onDelete={handleDelete} />}
 
             {showModal && (
                 <div className="fixed inset-0 bg-opacity-40 backdrop-blur-md flex items-center justify-center z-50 border-0 border-amber-50">
@@ -84,6 +94,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             )}
+            {showAnalytics && <AnalyticsDashboard />}
         </div>
     );
 };
