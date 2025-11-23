@@ -34,7 +34,7 @@ const StoryForm = ({ onSubmit, editingStory }) => {
             toast.error("Please fill in all required fields");
             return;
         }
-        if (!formData.startDate && !formData.endDate && new Date(formData.startDate) > new Date(formData.endDate)) {
+        if (formData.startDate && formData.endDate && new Date(formData.startDate) > new Date(formData.endDate)) {
             toast.error("Start date must be before end date");
             return;
         }
