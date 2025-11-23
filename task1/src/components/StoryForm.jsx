@@ -5,22 +5,23 @@ const initialState = {
     name: "",
     sprint: "",
     story: "",
-    link: "",
+    storyPoints: "",
+    storyLink: "",
     department: "",
+    assignedTo: "",
     startDate: "",
     endDate: "",
     reviewDate: "",
     comments: ""
 };
 
-const StoryForm = ({ onSubmit, editingStory }) => {
+const StoryForm = ({ onSubmit, editingStory, users = [] }) => {
     const [formData, setFormData] = useState(initialState);
 
     useEffect(() => {
         if (editingStory) {
             setFormData({ ...initialState, ...editingStory });
         }
-        console.log(editingStory);
     }, [editingStory]);
 
     const handleChange = (e) => {
@@ -30,7 +31,7 @@ const StoryForm = ({ onSubmit, editingStory }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!formData.name || !formData.sprint || !formData.story || !formData.link || !formData.department || !formData.comments) {
+        if (!formData.name || !formData.sprint || !formData.story || !formData.storyPoints || !formData.storyLink || !formData.department || !formData.comments) {
             toast.error("Please fill in all required fields");
             return;
         }
@@ -47,13 +48,13 @@ const StoryForm = ({ onSubmit, editingStory }) => {
     return (
         <form
             onSubmit={handleSubmit}
-            className="space-y-4 overflow-y-auto h-[450px] px-4"
+            className="space-y-5 overflow-y-auto h-[450px] px-2 custom-scrollbar"
         >
             {Object.keys(initialState).map((key) => (
                 <div key={key} className="flex flex-col">
                     <label
                         htmlFor={key}
-                        className="text-sm text-gray-700 capitalize mb-1"
+                        className="text-sm font-medium text-gray-700 dark:text-zinc-300 capitalize mb-1.5"
                     >
                         {key.replace(/([A-Z])/g, " $1")}
                     </label>
@@ -64,12 +65,27 @@ const StoryForm = ({ onSubmit, editingStory }) => {
                             name={key}
                             value={formData[key]}
                             onChange={handleChange}
-                            className="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 bg-white"
+                            className="w-full px-4 py-2.5 bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                         >
                             <option value="">Select Department</option>
                             {departments.map((dept) => (
                                 <option key={dept} value={dept}>
                                     {dept}
+                                </option>
+                            ))}
+                        </select>
+                    ) : key === "assignedTo" ? (
+                        <select
+                            id={key}
+                            name={key}
+                            value={formData[key]}
+                            onChange={handleChange}
+                            className="w-full px-4 py-2.5 bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                        >
+                            <option value="">Unassigned</option>
+                            {users.map((user) => (
+                                <option key={user.id} value={user.username}>
+                                    {user.username} ({user.role})
                                 </option>
                             ))}
                         </select>
@@ -80,15 +96,17 @@ const StoryForm = ({ onSubmit, editingStory }) => {
                             type={
                                 key === "startDate" || key === "endDate" || key === "reviewDate"
                                     ? "date"
-                                    : key === "link"
+                                    : key === "storyLink"
                                         ? "url"
-                                        : "text"
+                                        : key === "storyPoints"
+                                            ? "number"
+                                            : "text"
                             }
                             value={formData[key]}
                             onChange={handleChange}
-                            className="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-2.5 bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                             placeholder={
-                                key === "link" ? "https://example.com" : `Enter ${key}`
+                                key === "storyLink" ? "https://example.com" : `Enter ${key}`
                             }
                         />
                     )}
@@ -97,7 +115,7 @@ const StoryForm = ({ onSubmit, editingStory }) => {
 
             <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+                className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 shadow-md hover:shadow-lg mt-4"
             >
                 {editingStory ? "Update Story" : "Add Story"}
             </button>
