@@ -1,0 +1,147 @@
+(node:4216) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+FAIL src/test/Dashboard.test.jsx
+  ΓêÜ renders dashboard and loads data (154 ms)
+  ΓêÜ toggles analytics view (42 ms)
+  ΓêÜ opens modal when Add Story is clicked (35 ms)
+  ΓêÜ filters stories by search query (32 ms)
+  ΓêÜ filters stories by 'My Stories' (27 ms)
+  ΓêÜ handles story creation (58 ms)
+  ΓêÜ handles story deletion (111 ms)
+  ├ù handles story update (34 ms)
+  ΓêÜ cancels story deletion (43 ms)
+  ΓêÜ handles load stories failure (31 ms)
+  ΓêÜ handles create story failure (106 ms)
+  ├ù handles update story failure (19 ms)
+  ΓêÜ handles delete story failure (113 ms)
+
+  ΓùÅ handles story update
+
+    TestingLibraryElementError: Unable to find an element with the text: Edit. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    <body>
+      <div>
+        <div
+          class="min-h-screen bg-gray-50 dark:bg-zinc-950 transition-colors duration-200"
+        >
+          <div
+            data-testid="navbar"
+          >
+            <button>
+              Add Story
+            </button>
+            <button>
+              Toggle Analytics
+            </button>
+            <input
+              data-testid="search-input"
+            />
+          </div>
+          <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+          >
+            <div
+              class="flex justify-end mb-4"
+            >
+              <button
+                class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 border bg-white dark:bg-zinc-900 text-gray-700 dark:text-zinc-300 border-gray-300 dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-800"
+              >
+                My Stories
+              </button>
+            </div>
+            <div
+              class="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-xl shadow-sm p-6 transition-colors duration-200"
+            >
+              <div
+                data-testid="story-table"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+
+      171 |     await waitFor(() => screen.getByTestId("story-table"));
+      172 |
+    > 173 |     const editButtons = screen.getAllByText("Edit");
+          |                                ^
+      174 |     fireEvent.click(editButtons[0]);
+      175 |
+      176 |     expect(screen.getByText("Edit Story")).toBeInTheDocument();
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:37:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:109:15
+      at Object.getAllByText (src/test/Dashboard.test.jsx:173:32)
+
+  ΓùÅ handles update story failure
+
+    TestingLibraryElementError: Unable to find an element with the text: Edit. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    <body>
+      <div>
+        <div
+          class="min-h-screen bg-gray-50 dark:bg-zinc-950 transition-colors duration-200"
+        >
+          <div
+            data-testid="navbar"
+          >
+            <button>
+              Add Story
+            </button>
+            <button>
+              Toggle Analytics
+            </button>
+            <input
+              data-testid="search-input"
+            />
+          </div>
+          <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+          >
+            <div
+              class="flex justify-end mb-4"
+            >
+              <button
+                class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 border bg-white dark:bg-zinc-900 text-gray-700 dark:text-zinc-300 border-gray-300 dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-800"
+              >
+                My Stories
+              </button>
+            </div>
+            <div
+              class="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-xl shadow-sm p-6 transition-colors duration-200"
+            >
+              <div
+                data-testid="story-table"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+
+      235 |     await waitFor(() => screen.getByTestId("story-table"));
+      236 |
+    > 237 |     const editButtons = screen.getAllByText("Edit");
+          |                                ^
+      238 |     fireEvent.click(editButtons[0]);
+      239 |     fireEvent.click(screen.getByText("Submit Form"));
+      240 |
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:37:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:109:15
+      at Object.getAllByText (src/test/Dashboard.test.jsx:237:32)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 11 passed, 13 total
+Snapshots:   0 total
+Time:        5.185 s
+Ran all test suites matching /src\\test\\Dashboard.test.jsx/i.
+npm notice
+npm notice New patch version of npm available! 11.6.1 -> 11.6.4
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.4
+npm notice To update run: npm install -g npm@11.6.4
+npm notice

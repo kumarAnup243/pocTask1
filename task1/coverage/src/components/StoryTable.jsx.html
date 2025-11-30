@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -118,28 +118,22 @@
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
 <a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">65x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -161,8 +155,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -173,22 +173,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const StoryTable = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> stories, onEdit, onDelete }) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const StoryTable = ({ stories, onEdit, onDelete }) =&gt; {
+    return (
         &lt;div className="overflow-x-auto rounded-xl shadow-sm border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-colors duration-200"&gt;
             &lt;table className="min-w-full divide-y divide-gray-200 dark:divide-zinc-800"&gt;
                 &lt;thead className="bg-gray-50 dark:bg-zinc-950/50"&gt;
                     &lt;tr&gt;
-                        {["Name", "Sprint", "Story", "StoryPoints", "Link", "Dept", "Assigned To", "Status", "Start", "End", "Review", "Comments", "Actions"].map(<span class="fstat-no" title="function not covered" >(h</span>eader) =&gt; (
-<span class="cstat-no" title="statement not covered" >                            &lt;th key={header} className="px-6 py-4 text-left text-xs font-bold text-gray-700 dark:text-zinc-300 uppercase tracking-wider"&gt;</span>
+                        {["Name", "Sprint", "Story", "StoryPoints", "Link", "Dept", "Assigned To", "Status", "Start", "End", "Review", "Comments", "Actions"].map((header) =&gt; (
+                            &lt;th key={header} className="px-6 py-4 text-left text-xs font-bold text-gray-700 dark:text-zinc-300 uppercase tracking-wider"&gt;
                                 {header}
                             &lt;/th&gt;
                         ))}
                     &lt;/tr&gt;
                 &lt;/thead&gt;
                 &lt;tbody className="divide-y divide-gray-200 dark:divide-zinc-800"&gt;
-                    {stories.map(<span class="fstat-no" title="function not covered" >(s</span>tory) =&gt; (
-<span class="cstat-no" title="statement not covered" >                        &lt;tr key={story.id} className="hover:bg-gray-50 dark:hover:bg-zinc-800/50 transition-colors duration-150"&gt;</span>
+                    {stories.map((story) =&gt; (
+                        &lt;tr key={story.id} className="hover:bg-gray-50 dark:hover:bg-zinc-800/50 transition-colors duration-150"&gt;
                             &lt;td className="px-6 py-4 text-sm text-gray-900 dark:text-white font-semibold"&gt;{story.name}&lt;/td&gt;
                             &lt;td className="px-6 py-4 text-sm text-gray-600 dark:text-zinc-400"&gt;{story.sprint}&lt;/td&gt;
                             &lt;td className="px-6 py-4 text-sm text-gray-800 dark:text-zinc-200"&gt;{story.story}&lt;/td&gt;
@@ -216,8 +216,8 @@
                             &lt;td className="px-6 py-4 text-sm text-gray-600 dark:text-zinc-400 whitespace-nowrap"&gt;{story.reviewDate}&lt;/td&gt;
                             &lt;td className="px-6 py-4 text-sm text-gray-600 dark:text-zinc-400 max-w-xs truncate" title={story.comments}&gt;{story.comments}&lt;/td&gt;
                             &lt;td className="px-6 py-4 text-sm space-x-3 whitespace-nowrap"&gt;
-                                &lt;button onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >onEdit(story)}</span> className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium transition-colors"&gt;Edit&lt;/button&gt;
-                                &lt;button onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >onDelete(story.id)}</span> className="text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300 font-medium transition-colors"&gt;Delete&lt;/button&gt;
+                                &lt;button onClick={() =&gt; onEdit(story)} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium transition-colors"&gt;Edit&lt;/button&gt;
+                                &lt;button onClick={() =&gt; onDelete(story.id)} className="text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300 font-medium transition-colors"&gt;Delete&lt;/button&gt;
                             &lt;/td&gt;
                         &lt;/tr&gt;
                     ))}
@@ -235,7 +235,7 @@ export default StoryTable;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-28T06:31:06.019Z
+                at 2025-11-30T10:49:25.958Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
