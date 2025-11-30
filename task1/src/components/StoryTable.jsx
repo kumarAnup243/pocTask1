@@ -4,7 +4,7 @@ const StoryTable = ({ stories, onEdit, onDelete }) => {
             <table className="min-w-full divide-y divide-gray-200 dark:divide-zinc-800">
                 <thead className="bg-gray-50 dark:bg-zinc-950/50">
                     <tr>
-                        {["Name", "Sprint", "Story", "StoryPoints", "Link", "Dept", "Assigned To", "Start", "End", "Review", "Comments", "Actions"].map((header) => (
+                        {["Name", "Sprint", "Story", "StoryPoints", "Link", "Dept", "Assigned To", "Status", "Start", "End", "Review", "Comments", "Actions"].map((header) => (
                             <th key={header} className="px-6 py-4 text-left text-xs font-bold text-gray-700 dark:text-zinc-300 uppercase tracking-wider">
                                 {header}
                             </th>
@@ -35,6 +35,7 @@ const StoryTable = ({ stories, onEdit, onDelete }) => {
                                     <span className="text-gray-400 dark:text-zinc-600 italic">Unassigned</span>
                                 )}
                             </td>
+                            <td className="px-6 py-4 text-sm text-gray-600 dark:text-zinc-400 whitespace-nowrap">{story.status}</td>
                             <td className="px-6 py-4 text-sm text-gray-600 dark:text-zinc-400 whitespace-nowrap">{story.startDate}</td>
                             <td className="px-6 py-4 text-sm text-gray-600 dark:text-zinc-400 whitespace-nowrap">{story.endDate}</td>
                             <td className="px-6 py-4 text-sm text-gray-600 dark:text-zinc-400 whitespace-nowrap">{story.reviewDate}</td>

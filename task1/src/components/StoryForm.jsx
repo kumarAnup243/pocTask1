@@ -9,6 +9,7 @@ const initialState = {
     storyLink: "",
     department: "",
     assignedTo: "",
+    status: "TODO",
     startDate: "",
     endDate: "",
     reviewDate: "",
@@ -43,7 +44,9 @@ const StoryForm = ({ onSubmit, editingStory, users = [] }) => {
         setFormData(initialState);
     };
 
-    const departments = ["Backend", "Frontend", "DevOps",];
+
+    const departments = ["Backend", "Frontend", "DevOps", "QA", "Android", "iOS", "UX"];
+    const statusOptions = ["TODO", "IN_PROGRESS", "COMPLETED"];
 
     return (
         <form
@@ -60,56 +63,73 @@ const StoryForm = ({ onSubmit, editingStory, users = [] }) => {
                     </label>
 
                     {key === "department" ? (
-                        <select
-                            id={key}
-                            name={key}
-                            value={formData[key]}
-                            onChange={handleChange}
-                            className="w-full px-4 py-2.5 bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                        >
-                            <option value="">Select Department</option>
-                            {departments.map((dept) => (
-                                <option key={dept} value={dept}>
-                                    {dept}
-                                </option>
-                            ))}
-                        </select>
-                    ) : key === "assignedTo" ? (
-                        <select
-                            id={key}
-                            name={key}
-                            value={formData[key]}
-                            onChange={handleChange}
-                            className="w-full px-4 py-2.5 bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                        >
-                            <option value="">Unassigned</option>
-                            {users.map((user) => (
-                                <option key={user.id} value={user.username}>
-                                    {user.username} ({user.role})
-                                </option>
-                            ))}
-                        </select>
-                    ) : (
-                        <input
-                            id={key}
-                            name={key}
-                            type={
-                                key === "startDate" || key === "endDate" || key === "reviewDate"
-                                    ? "date"
-                                    : key === "storyLink"
-                                        ? "url"
-                                        : key === "storyPoints"
-                                            ? "number"
-                                            : "text"
-                            }
-                            value={formData[key]}
-                            onChange={handleChange}
-                            className="w-full px-4 py-2.5 bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                            placeholder={
-                                key === "storyLink" ? "https://example.com" : `Enter ${key}`
-                            }
-                        />
-                    )}
+                            <select
+                                id={key}
+                                name={key}
+                                value={formData[key]}
+                                onChange={handleChange}
+                                className="w-full px-4 py-2.5 bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                            >
+                                <option value="">Select Department</option>
+                                {departments.map((dept) => (
+                                    <option key={dept} value={dept}>
+                                        {dept}
+                                    </option>
+                                ))}
+                            </select>
+                        )
+                        : key === "status" ? (
+                                <select
+                                    id={key}
+                                    name={key}
+                                    value={formData[key]}
+                                    onChange={handleChange}
+                                    className="w-full px-4 py-2.5 bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                >
+                                    {statusOptions.map((status) => (
+                                        <option key={status} value={status}>
+                                            {status.replace("_", " ")}
+                                        </option>
+                                    ))}
+                                </select>
+                            )
+                            : key === "assignedTo" ? (
+                                    <select
+                                        id={key}
+                                        name={key}
+                                        value={formData[key]}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-2.5 bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                    >
+                                        <option value="">Unassigned</option>
+                                        {users.map((user) => (
+                                            <option key={user.id} value={user.username}>
+                                                {user.username} ({user.role})
+                                            </option>
+                                        ))}
+                                    </select>
+                                )
+                                : (
+                                    <input
+                                        id={key}
+                                        name={key}
+                                        type={
+                                            key === "startDate" || key === "endDate" || key === "reviewDate"
+                                                ? "date"
+                                                : key === "storyLink"
+                                                    ? "url"
+                                                    : key === "storyPoints"
+                                                        ? "number"
+                                                        : "text"
+                                        }
+                                        value={formData[key] || ""}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-2.5 bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                        placeholder={
+                                            key === "storyLink" ? "https://example.com" : `Enter ${key}`
+                                        }
+                                    />
+                                )}
                 </div>
             ))}
 
