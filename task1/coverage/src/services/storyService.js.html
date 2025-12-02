@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">9.09% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">9.09% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -95,30 +95,30 @@
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -126,29 +126,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import api from './api';
 &nbsp;
 const storyService = {
-    getAllStories: <span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {
-        const response = <span class="cstat-no" title="statement not covered" >await api.get('/stories');</span>
-<span class="cstat-no" title="statement not covered" >        return response.data;</span>
+    getAllStories: async () =&gt; {
+        const response = await api.get('/stories');
+        return response.data;
     },
 &nbsp;
-    getStoryById: <span class="fstat-no" title="function not covered" >as</span>ync (id) =&gt; {
-        const response = <span class="cstat-no" title="statement not covered" >await api.get(`/stories/${id}`);</span>
-<span class="cstat-no" title="statement not covered" >        return response.data;</span>
+    getStoryById: async (id) =&gt; {
+        const response = await api.get(`/stories/${id}`);
+        return response.data;
     },
 &nbsp;
-    createStory: <span class="fstat-no" title="function not covered" >as</span>ync (storyData) =&gt; {
-        const response = <span class="cstat-no" title="statement not covered" >await api.post('/stories', storyData);</span>
-<span class="cstat-no" title="statement not covered" >        return response.data;</span>
+    createStory: async (storyData) =&gt; {
+        const response = await api.post('/stories', storyData);
+        return response.data;
     },
 &nbsp;
-    updateStory: <span class="fstat-no" title="function not covered" >as</span>ync (id, storyData) =&gt; {
-        const response = <span class="cstat-no" title="statement not covered" >await api.put(`/stories/${id}`, storyData);</span>
-<span class="cstat-no" title="statement not covered" >        return response.data;</span>
+    updateStory: async (id, storyData) =&gt; {
+        const response = await api.put(`/stories/${id}`, storyData);
+        return response.data;
     },
 &nbsp;
-    deleteStory: <span class="fstat-no" title="function not covered" >as</span>ync (id) =&gt; {
-        const response = <span class="cstat-no" title="statement not covered" >await api.delete(`/stories/${id}`);</span>
-<span class="cstat-no" title="statement not covered" >        return response.data;</span>
+    deleteStory: async (id) =&gt; {
+        const response = await api.delete(`/stories/${id}`);
+        return response.data;
     }
 };
 &nbsp;
@@ -160,7 +160,7 @@ export default storyService;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-30T10:49:25.958Z
+                at 2025-12-02T06:46:57.300Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

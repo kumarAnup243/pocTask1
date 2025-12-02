@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">55.55% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>5/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">34.78% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/23</span>
+                <span class='fraction'>8/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>1/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">55.55% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>5/9</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -148,15 +148,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -164,9 +164,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -229,11 +229,11 @@
 import { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 &nbsp;
-const UserStoriesChart = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> data }) =&gt; {</span>
-    const { theme } = <span class="cstat-no" title="statement not covered" >useTheme();</span>
+const UserStoriesChart = ({ data }) =&gt; {
+    const { theme } = useTheme();
 &nbsp;
     // Custom Tooltip Component
-    const CustomTooltip = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> active, payload, label }) =&gt; {</span>
+    const CustomTooltip = <span class="fstat-no" title="function not covered" >({</span> active, payload, label }) =&gt; {
 <span class="cstat-no" title="statement not covered" >        if (active &amp;&amp; payload &amp;&amp; payload.length) {</span>
 <span class="cstat-no" title="statement not covered" >            return (</span>
                 &lt;div className="bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 p-3 rounded-lg shadow-lg text-center transition-colors duration-200"&gt;
@@ -245,9 +245,9 @@ const UserStoriesChart = <span class="cstat-no" title="statement not covered" ><
 <span class="cstat-no" title="statement not covered" >        return null;</span>
     };
 &nbsp;
-    const axisColor = <span class="cstat-no" title="statement not covered" >theme === 'dark' ? '#E4E4E7' : '#374151';</span> // zinc-200 : gray-700
+    const axisColor = theme === 'dark' ? <span class="branch-0 cbranch-no" title="branch not covered" >'#E4E4E7' </span>: '#374151'; // zinc-200 : gray-700
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;&gt;
             {data.length &gt; 0 ? &lt;div className="p-2 rounded-lg mx-auto w-full"&gt;
                 &lt;h2 className="md:text-xl mb-4 font-bold text-center text-gray-900 dark:text-white"&gt;Stories per User&lt;/h2&gt;
@@ -258,19 +258,19 @@ const UserStoriesChart = <span class="cstat-no" title="statement not covered" ><
                                 data={data}
                                 margin={{ top: 10, right: 30, left: 0, bottom: 25 }}
                             &gt;
-                                &lt;CartesianGrid strokeDasharray="3 3" vertical={false} stroke={theme === 'dark' ? '#3f3f46' : '#e5e7eb'} /&gt;
+                                &lt;CartesianGrid strokeDasharray="3 3" vertical={false} stroke={theme === 'dark' ? <span class="branch-0 cbranch-no" title="branch not covered" >'#3f3f46' </span>: '#e5e7eb'} /&gt;
                                 &lt;XAxis
                                     dataKey="username"
                                     tickFormatter={<span class="fstat-no" title="function not covered" >(v</span>alue) =&gt; <span class="cstat-no" title="statement not covered" >value.length &gt; 8 &amp;&amp; window.innerWidth &lt; 768 ? `${value.substring(0, 6)}..` : value}</span>
                                     tick={{
                                         fill: axisColor,
-                                        fontSize: window.innerWidth &lt; 768 ? 10 : 12,
+                                        fontSize: window.innerWidth &lt; 768 ? <span class="branch-0 cbranch-no" title="branch not covered" >10 </span>: 12,
                                         dy: 10,
                                         textAnchor: 'middle',
                                     }}
                                     tickMargin={4}
                                     interval={0}
-                                    axisLine={{ stroke: theme === 'dark' ? '#52525b' : '#d1d5db' }}
+                                    axisLine={{ stroke: theme === 'dark' ? <span class="branch-0 cbranch-no" title="branch not covered" >'#52525b' </span>: '#d1d5db' }}
                                     tickLine={false}
                                 /&gt;
 &nbsp;
@@ -282,14 +282,14 @@ const UserStoriesChart = <span class="cstat-no" title="statement not covered" ><
                                 /&gt;
                                 &lt;Tooltip
                                     content={&lt;CustomTooltip /&gt;}
-                                    cursor={{ stroke: theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)', strokeWidth: 2 }}
+                                    cursor={{ stroke: theme === 'dark' ? <span class="branch-0 cbranch-no" title="branch not covered" >'rgba(255,255,255,0.1)' </span>: 'rgba(0,0,0,0.1)', strokeWidth: 2 }}
                                 /&gt;
                                 &lt;Line
                                     type="monotone"
                                     dataKey="count"
                                     stroke="#8B5CF6" // violet-500
                                     strokeWidth={3}
-                                    dot={{ r: 6, fill: "#8B5CF6", strokeWidth: 2, stroke: theme === 'dark' ? '#18181b' : '#fff' }}
+                                    dot={{ r: 6, fill: "#8B5CF6", strokeWidth: 2, stroke: theme === 'dark' ? <span class="branch-0 cbranch-no" title="branch not covered" >'#18181b' </span>: '#fff' }}
                                     activeDot={{ r: 8 }}
                                 /&gt;
                             &lt;/LineChart&gt;
@@ -313,7 +313,7 @@ export default UserStoriesChart;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-30T10:49:25.958Z
+                at 2025-12-02T06:46:57.300Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
